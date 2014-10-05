@@ -1,0 +1,169 @@
+body {
+    color: #333232;
+    background-color: #ffffff;
+}
+
+h1 {
+    font-size: 80px;
+}
+
+h2, h3 {
+    color: #a2cccb;
+}
+
+/* Jumbotron */
+
+.jumbo {
+    background-color: #fffcf6;
+    text-align: center;
+    position: relative;
+    height: 877px;
+    margin-bottom: 0px;
+}
+
+.jumbo h1 {
+    padding-top: 160px;
+    text-transform: uppercase;
+}
+
+.jumbo p {
+    margin: 30px 0;
+    font-size: 30px;
+}
+
+.jumbo .info {
+    margin-bottom: 80px;
+}
+
+.jumbo .scroll-down {
+    margin-top: 80px;
+}
+
+.jumbo .btn-primary {
+    line-height: 60px;
+    font-size: 30px;
+    text-transform: lowercase;
+    border-radius: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.bg-hack {
+    position: absolute;
+    top: -877px;
+    left: 0;
+    width: 563px;
+    height: 1025px;
+    background-image: url(../img/homepage-img.png);
+    background-repeat: no-repeat;
+}
+
+/* Main page content */
+
+.content {
+    position: relative;
+    background-image: url(../img/background.png);
+}
+
+.content .row {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.content h2 {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 80px;
+}
+
+.content h2.first {
+    margin-top: 180px;
+}
+
+/* Feature */
+
+.feature-row {
+    margin-bottom: 60px;
+}
+
+.feature {
+    position: relative;;
+    width: 300px;
+    padding-left: 30px;
+    border-left: 30px solid #cd6431;
+}
+
+.feature .icon {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.feature p {
+    font-size: 18px;
+}
+
+.feature h3 {
+    color: #333232;
+    text-align: center;
+    font-size: 36px;
+}
+
+.feature.f1 {
+    border-color: #cd6431;
+}
+
+.feature.f2 {
+    border-color: #745d41;
+}
+
+.feature.f3 {
+    border-color: #fffcf6;
+}
+
+.feature.f4 {
+    border-color: #62ab9f;
+}
+
+/* News */
+
+.news h3 {
+    font-size: 36px;
+    color: #999966;
+}
+
+.news-text {
+    border: 2px solid #ac997b;
+    border-radius: 10px;
+    padding: 30px;
+    font-size: 18px;
+}
+
+/* Statement */
+
+.statement {
+    font-size: 48px;
+    color: #a2cccb;
+    text-align: center;
+    margin: 80px 0;
+}
+
+/* Footer */
+
+footer h3 {
+    font-size: 30px;
+}
+
+footer p {
+    font-size: 18px;
+}
+
+footer {
+    margin-bottom: 80px;
+}
+
+/*
+=== Bootstrap overrides ===
+*/
+.btn-primary {
+    background-color: #63ab9f;
+}
