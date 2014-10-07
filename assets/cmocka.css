@@ -1,6 +1,23 @@
+@font-face {
+    font-family: 'Arial Rounded MT';
+    font-style: normal;
+    font-weight: 700;
+    src: url('./Arial Rounded MT Bold.eot');
+    src: local('Arial Rounded MT Bold'),
+        url('../assets/Arial Rounded MT Bold.woff') format('woff'),
+        url('../assets/Arial Rounded MT Bold.ttf') format('truetype');
+}
+
 body {
     color: #333232;
     background-color: #ffffff;
+    font-family: "Arial Rounded MT";
+    font-weight: 700; /* to  use the font defined above */
+}
+
+h1, h2, h3 {
+    font-family: "Arial Rounded MT";
+    font-weight: 700;
 }
 
 h1 {
