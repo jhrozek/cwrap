@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/favicon.png">
+
+    <title>cwrap - Testing your full software stack on a single machine</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/jumbotron.css" rel="stylesheet">
+    <link href="assets/carousel.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  <link href="assets/content.css" type="text/css" rel="stylesheet"></head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          -->
+          <a class="navbar-brand" href="#">cwrap</a>
+        </div>
+        <!--
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="form">
+            <div class="form-group">
+              <input placeholder="Email" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+              <input phnomarkers="true" placeholder="Password" class="form-control" type="password"><br><table style="width: 30px;margin: 0;padding: 0"><tr style="margin: 0;padding: 0"><td title="Click for Password Hasher" class="passhash_marker" id="null_passhash_marker_1" style="border: thin solid #80c080;background-color: #eeffee;margin: 0 1px;padding: 0;font: 12px serif;color: #609060;cursor: pointer;min-width: 12px;text-align: center;vertical-align: middle;">#</td></tr></table>
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div>--><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <!--<img src="http://cmocka.org/cmocka.png" align="right" />-->
+        <h1>cwrap is...</h1>
+
+        <p>a set of tools to create a fully isolated network environment to
+        test client/server components on a single host. It provides synthetic
+        account information, hostname resolution and support for privilege
+        separation. The heart of cwrap consists of three libraries you can
+        preload to any executable.</p>
+
+        <br />
+        <p>
+        <a class="btn btn-primary btn-lg" role="button" href="https://ftp.samba.org/pub/cwrap/">Download here »</a>
+        or <a href="https://lwn.net/Articles/594863/">Learn More</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAYAAACuwEE+AAAC9UlEQVR4nO3YzWricBRA8b7/o1yDhBi6bCNUF13bUpHaRV0kJc0r3FmN0A+nPQtr45zFDxQvXElOwL8XwzCk9F0Xp/4CGheDEWIwQgxGiMEIMRghBiPEYIQYjBCDEWIwQgxGiMEIMRghBiPEYIQYjBCDEWIwQgxGiMEIMRghBiPEYIQYjBCDEWIwQgxGiMEIMRghBiPEYIQYjBCDEWIwQgxGiMEIMRghBiPEYIQYjBCDEWIwQgxGiMEIMRghBiPEYIQYjBCDEWIwQgxGiMEIMRghBiPEYIQYjBCDEWIwQgxGiMEIMRghBiNkdMFExBuH5vq+z8vLy0/n7u7usq7rLIoi67rO+/v7X7/7txhdMO9v3qHPb29vs2maD3OPj48ZEblcLrPrulwsFhkRud1uR7H71M4ymKenpyzLMtu2/TB3dXWVEZG73S6HYcjdbpcRkdfX1zmfzzMicrPZ5DAMudlsMiJyPp8fffepr+d/G0zf91nXdT48PHw6V1VVRkT2fb+fj4isqiq7rsuyLLMsy3x+ft6/7rru6LtPfT3/22CWy2Xe3NwcnCuK4s3719fXjIgsiiKHYcj1er1/HxG5Xq9/bPcYnF0wVVXly8vLwbnvPOV1XWdEZF3XP777tzu7YN6fZN6far76HbFarTIisizLjIhcrVY/tnsMzi6Yr+b+nlQWi8WHk0rbtjmdTnM2m2XbtjmbzXI6nWbbtkffferrebbB/OsJ/m5Yh/4LaZomJ5PJ/gZut9ucTCbZNM3Rd4/F6ILRaRmMEIMRYjBCDEaIwQgxGCEGI8RghBiMEIMRYjBCDEaIwQgxGCEGI8RghBiMEIMRYjBCDEaIwQgxGCEGI8RghBiMEIMRYjBCDEaIwQgxGCEGI8RghBiMEIMRYjBCDEaIwQgxGCEGI8RghBiMEIMRYjBCDEaIwQgxGCEGI8RghBiMEIMRYjBCDEaIwQgxGCEGI8RghBiMEIMRYjBCDEaIwQgxGCEGI8RghBiMEIMR8gcuej8nf/UzYQAAAABJRU5ErkJggg==" style="width: 140px; height: 140px;" class="img-circle" data-src="holder.js/140x140" alt="140x140"> -->
+          <h2>News</h2>
+          <p><b>2014-06-02</b> Version 1.1.0 of socket_wrapper has been released, with a lot of bugfixes and features</p>
+          <p><b>2014-05-05</b> Version 1.0.2 of socket_wrapper has been released</p>
+          <p><a class="btn btn-default" href="https://ftp.samba.org/pub/cwrap/" role="button">Download here »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <h2>Mission Statement</h2>
+          <p>cwrap's mission is to enable developers to test complex
+          network-based and privileged software stacks on UNIX machines with
+          limited network access and without root privileges by providing
+          preloadable libraries to wrap standard libc functions.</p>
+
+          <h4>Development</h4>
+          <p>cwrap is developed using the git version control system. You can
+          find the web interface of the git repository at:</p>
+          <ul>
+              <li><a href="http://git.samba.org/?p=socket_wrapper.git">socket_wrapper</a></li>
+              <li><a href="http://git.samba.org/?p=nss_wrapper.git">nss_wrapper</a></li>
+              <li><a href="http://git.samba.org/?p=uid_wrapper.git">uid_wrapper</a></li>
+          </ul>
+
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAYAAACuwEE+AAAC9UlEQVR4nO3YzWricBRA8b7/o1yDhBi6bCNUF13bUpHaRV0kJc0r3FmN0A+nPQtr45zFDxQvXElOwL8XwzCk9F0Xp/4CGheDEWIwQgxGiMEIMRghBiPEYIQYjBCDEWIwQgxGiMEIMRghBiPEYIQYjBCDEWIwQgxGiMEIMRghBiPEYIQYjBCDEWIwQgxGiMEIMRghBiPEYIQYjBCDEWIwQgxGiMEIMRghBiPEYIQYjBCDEWIwQgxGiMEIMRghBiPEYIQYjBCDEWIwQgxGiMEIMRghBiPEYIQYjBCDEWIwQgxGiMEIMRghBiNkdMFExBuH5vq+z8vLy0/n7u7usq7rLIoi67rO+/v7X7/7txhdMO9v3qHPb29vs2maD3OPj48ZEblcLrPrulwsFhkRud1uR7H71M4ymKenpyzLMtu2/TB3dXWVEZG73S6HYcjdbpcRkdfX1zmfzzMicrPZ5DAMudlsMiJyPp8fffepr+d/G0zf91nXdT48PHw6V1VVRkT2fb+fj4isqiq7rsuyLLMsy3x+ft6/7rru6LtPfT3/22CWy2Xe3NwcnCuK4s3719fXjIgsiiKHYcj1er1/HxG5Xq9/bPcYnF0wVVXly8vLwbnvPOV1XWdEZF3XP777tzu7YN6fZN6far76HbFarTIisizLjIhcrVY/tnsMzi6Yr+b+nlQWi8WHk0rbtjmdTnM2m2XbtjmbzXI6nWbbtkffferrebbB/OsJ/m5Yh/4LaZomJ5PJ/gZut9ucTCbZNM3Rd4/F6ILRaRmMEIMRYjBCDEaIwQgxGCEGI8RghBiMEIMRYjBCDEaIwQgxGCEGI8RghBiMEIMRYjBCDEaIwQgxGCEGI8RghBiMEIMRYjBCDEaIwQgxGCEGI8RghBiMEIMRYjBCDEaIwQgxGCEGI8RghBiMEIMRYjBCDEaIwQgxGCEGI8RghBiMEIMRYjBCDEaIwQgxGCEGI8RghBiMEIMRYjBCDEaIwQgxGCEGI8RghBiMEIMR8gcuej8nf/UzYQAAAABJRU5ErkJggg==" style="width: 140px; height: 140px;" class="img-circle" data-src="holder.js/140x140" alt="140x140"> -->
+          <h2>Communication</h2>
+          <ul>
+              <li>Bugs can be reported to the <a href="https://bugzilla.samba.org/enter_bug.cgi?product=cwrap" target="_blank">Samba bugtracker</a></li>
+              <li>For discussions please use the <a href="https://lists.samba.org/mailman/listinfo/samba-technical" target="_blank">samba-technical mailing list</a></li>
+              <li>IRC #cwrap @ irc.freenode.net</li>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette" id="learnmore">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">An isolated network. <span class="text-muted">Talk to each other.</span></h2>
+
+          <p class="lead">cwrap, the libc wrapper project, aims to help
+          client/server software development teams willing to gain full
+          functional test coverage. It makes possible to run several instances
+          of the full software stack on the same machine and perform locally
+          functional testing of complex network configurations.
+          <a href="socket_wrapper.html">Learn more...</a></p>
+
+        </div>
+        <div class="col-md-5">
+            <img src="img/socket_wrapper.png" />
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-5">
+            <img src="img/nss_wrapper.png" class="featurette-image img-responsive" />
+        </div>
+
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Artificial users and groups. <span class="text-muted">I'm someone else.</span></h2>
+
+          <p class="lead">There are projects which provide daemons needing to
+          be able to create, modify and delete unix users. Or just switch user
+          ids to interact with the system e.g. a user space file server. To be
+          able to test that you need the privilege to modify the passwd and
+          groups file. With nss_wrapper it is possible to define your own
+          passwd and groups file which will be used by software to act
+          correctly while under test.
+          <a href="nss_wrapper.html">Learn more...</a></p>
+
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Network name resolution. <span class="text-muted">Who is who?</span></h2>
+
+          <p class="lead">If you have a client and server under test they
+          normally use functions to resolve network names to addresses (dns) or
+          vice versa. The nss_wrappers allow you to create a hosts file to
+          setup name resolution for the addresses you use with socket_wrapper.
+          <a href="nss_wrapper.html">Learn more...</a></p>
+
+        </div>
+        <div class="col-md-5">
+            <img src="img/getnameinfo.png" class="featurette-image img-responsive" />
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-5">
+          <h2 class="featurette-heading">Privilege separation. <span class="text-muted">Be root in your imagination!</span></h2>
+
+          <p class="lead">Some projects like a file server need privilege
+          separation to be able to switch to the connection user and do file
+          operations. uid_wrapper convincingly lies to the application letting
+          it believe it is operating as root and even switching betwen uids and
+          gids as needed.
+          <a href="uid_wrapper.html">Learn more...</a></p>
+
+        </div>
+        <div class="col-md-7">
+            <img src="img/uid_wrapper.png" class="featurette-image img-responsive" />
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Users of cwrap</h2>
+
+          <p class="lead">
+          <a href="http://www.samba.org" target="_blank">Samba - The domain controller and file server</a><br />
+          <a href="http://www.libssh.org/" target="_blank">libssh - The SSH Library</a><br />
+          </p>
+
+        </div>
+        <div class="col-md-5">
+        </div>
+      </div>
+
+      <hr class="featurette-divider" />
+
+      <footer>
+          <p>© Andreas Schneider 2013</p>
+      </footer>
+   </div> <!-- /container -->
+
+   <!-- Bootstrap core JavaScript
+        ================================================== -->
+   <!-- Placed at the end of the document so the pages load faster -->
+   <script src="assets/jquery-1.js"></script>
+   <script src="assets/bootstrap.min.js"></script>
+   <!-- Piwik -->
+   <script type="text/javascript">
+     var _paq = _paq || [];
+     _paq.push(["trackPageView"]);
+     _paq.push(["enableLinkTracking"]);
+
+     (function() {
+       var u=(("https:" == document.location.protocol) ? "https" : "http") + "://cia.cryptomilk.org/";
+       _paq.push(["setTrackerUrl", u+"piwik.php"]);
+       _paq.push(["setSiteId", "3"]);
+       var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+       g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+     })();
+   </script>
+   <!-- End Piwik Code -->
+
+</body></html>
