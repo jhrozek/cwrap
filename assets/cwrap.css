@@ -195,6 +195,51 @@ footer {
 }
 
 /*
+=== Subpages ===
+ */
+
+.subpage-header {
+    height: 235px;
+    background-image: url(../img/top-page.png);
+    position: relative;;
+}
+
+.subpage-header a {
+    position: absolute;;
+    display: block;
+    font-size: 80px;
+    font-weight: 700;
+    color: #333232;
+    top: 40px;
+    /*bottom: 235px;*/
+    right:  80px;
+}
+
+.subpage {
+    padding: 50px;
+    font-size: 24px;
+}
+
+.subpage h1 {
+    color: #a2cccb;
+    font-size: 48px;
+    margin: 40px 0 60px 0;
+}
+
+.subpage h2 {
+    font-size: 36px;
+}
+
+.subpage h3 {
+    font-size: 30px
+}
+
+.footer-line {
+    border-top: 15px solid #fffbf2;
+}
+
+
+/*
 === Bootstrap overrides ===
 */
 .btn-primary {
