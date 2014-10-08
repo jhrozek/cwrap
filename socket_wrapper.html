@@ -103,13 +103,15 @@
 
                     <li>Additionally, the default interface to be used by an
                     application is defined with
-                    "SOCKET_WRAPPER_DEFAULT_IFACE=&lt;ID&gt;" where &lt;ID&gt; is between 2
-                    and 254. This is analogous to use the IPv4 addresses
-                    "127.0.0.&lt;ID&gt;" or IPv6 addresses "fd00::5357:5f&lt;IDx&gt;"
-                    (where &lt;IDx&gt; is a hexadecimal presentation of &lt;ID&gt;). You
-                    should always set the default interface. If you listen on
-                    INADDR_ANY then it will use the default interface to listen
-                    on.</li>
+                    "SOCKET_WRAPPER_DEFAULT_IFACE=&lt;ID&gt;" where &lt;ID&gt;
+                    is between 2 and 40. We limited the address space for
+                    performance reasons in the case of broadcasts. This is
+                    analogous to use the IPv4 addresses "127.0.0.&lt;ID&gt;" or
+                    IPv6 addresses "fd00::5357:5f&lt;IDx&gt;" (where
+                    &lt;IDx&gt; is a hexadecimal presentation of &lt;ID&gt;).
+                    You should always set the default interface. If you listen
+                    on INADDR_ANY then it will use the default interface to
+                    listen on.</li>
 
                     <li>    When debugging,it is often interesting to
                     investigate the network traffic between the client and
@@ -134,7 +136,7 @@ $ LD_PRELOAD=libsocket_wrapper.so SOCKET_WRAPPER_DIR=/tmp/tmp.bQRELqDrhM SOCKET_
 # (If nc, listens on 0.0.0.0 then listener will be open on 127.0.0.10 cause it is the default interface)
 
 # Now open another console and start 'nc' as a client to connect to the server:
-$ LD_PRELOAD=libsocket_wrapper.so SOCKET_WRAPPER_DIR=/tmp/tmp.bQRELqDrhM SOCKET_WRAPPER_DEFAULT_IFACE=100 nc -v 127.0.0.10 7
+$ LD_PRELOAD=libsocket_wrapper.so SOCKET_WRAPPER_DIR=/tmp/tmp.bQRELqDrhM SOCKET_WRAPPER_DEFAULT_IFACE=20 nc -v 127.0.0.10 7
 
 # (The client will use the address 127.0.0.100 when connecting to the server)
 # Now you can type 'Hello!' which will be sent to the server and should appear in the console output of the server.</pre>
