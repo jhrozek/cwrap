@@ -60,17 +60,31 @@
         <!-- Example row of columns -->
         <div class="row">
             <div class="col-md-7">
+                <p>uid_wrapper - A wrapper to fake privilege separation</p>
+
+                <p>
+                Some projects, such as a file server, need privilege
+                separation to be able to switch to the user who owns the
+                files and do file operations on their behalf. uid_wrapper
+                convincingly lies to the application, letting it believe
+                it is operating as root and even switching between UIDs
+                and GIDs as needed. You can start any application making
+                it believe it is running as root.
+                </p>
+
                 <h2>Features</h2>
                 <ul>
                     <li>Allows uid switching as a normal user.</li>
                     <li>Start any application making it believe it is running as root.</li>
                     <li>Support for user/group changing in the local thread using the syscalls (like glibc).</li>
+                    <li>uid_wrapper intercepts <code>seteuid(2)</code> and related calls and simulates them in a way transparent to the application</li>
                 </ul>
 
                 <h2>Detailed descriptions</h2>
                 <ul>
-                    <li>If you load the uid_wrapper and enable it with setting UID_WRAPPER=1 all setuid and setgid will work, even as a normal user.</li>
-                    <li>It is possible to start your application as fake root with setting UID_WRAPPER_ROOT=1.</li>
+                    <li>If you load the uid_wrapper and enable it with setting <code>UID_WRAPPER=1</code> all <code>setuid()</code> and <code>setgid()</code> calls will work, even as a normal user.</li>
+                    <li>It is possible to start your application as fake root with setting <code>UID_WRAPPER_ROOT=1.</code></li>
+                    <li>Enable debugging of uid_wrapper itself by setting the <code>UID_WRAPPER_DEBUGLEVEL</code> variable</li>
                 </ul>
 
                 <h2>Example</h2>
