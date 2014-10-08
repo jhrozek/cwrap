@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/favicon.png">
+
+    <title>cwrap - socket_wrapper</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/jumbotron.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  <link href="assets/content.css" type="text/css" rel="stylesheet"></head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          -->
+          <a class="navbar-brand" href="/">cwrap</a>
+        </div>
+        <!--
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="form">
+            <div class="form-group">
+              <input placeholder="Email" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+              <input phnomarkers="true" placeholder="Password" class="form-control" type="password"><br><table style="width: 30px;margin: 0;padding: 0"><tr style="margin: 0;padding: 0"><td title="Click for Password Hasher" class="passhash_marker" id="null_passhash_marker_1" style="border: thin solid #80c080;background-color: #eeffee;margin: 0 1px;padding: 0;font: 12px serif;color: #609060;cursor: pointer;min-width: 12px;text-align: center;vertical-align: middle;">#</td></tr></table>
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div>--><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+        <h1>What is preloading?</h1>
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-7">
+
+                <p>Library pre-loading is most commonly used when you need a
+                custom version of a library function to be called. You might
+                want to implement your own <code>malloc(3)</code> and
+                <code>free(3)</code> functions that would perform a rudimentary
+                leak checking or memory access control for example, or you
+                might want to extend the I/O calls to dump data when reverse
+                engineering a binary blob. In this case, the library to be
+                preloaded would implement the functions you want to override
+                with prelinking. Only functions of dynamically loaded libraries
+                can be overridden. You're not able to override a function the
+                application implements by itself or links statically with.</p>
+
+                <p>The library to preload is defined by the environment
+                variable <code>LD_PRELOAD</code>, such as
+                <code>LD_PRELOAD=libwurst.so</code>. The symbols of the
+                preloaded library are bound first, before other linked shared
+                libraries.  Lets look into symbol binding in more details. If
+                your application calls a function, then the linker looks if it
+                is available in the application itself first. If the symbol is
+                not found, the linker checks all preloaded libraries and only
+                then all the libraries which have been linked to your
+                application. The shared libraries are searched in the order
+                which has been given during compilation and linking. You can
+                find out the linking order by calling <code>'ldd
+                /path/to/my/applicaton'</code>. If you're interested how the
+                linker is searching for the symbols it needs or if you want do
+                debug if the symbol of your preloaded library is used
+                correctly, you can do that by enabling tracing in the
+                linker.</p>
+
+                <p>A simple example would be <code>'LD_DEBUG=symbols ls'</code>.
+                You can find more details about debugging with the linker in
+                the manpage:
+                <a href="http://man7.org/linux/man-pages/man8/ld.so.8.html"><code>'man ld.so'</code></a>.
+
+                <h3>Example:</h3>
+
+                <blockquote>Your application uses the function <code>open(2)</code>.
+
+                <ul>
+                        <li>Your application doesn't implement it.</li>
+                        <li><code>LD_PRELOAD=libcwrap.so</code> provides <code>open(2)</code>.</li>
+                        <li>The linked libc.so provides <code>open(2)</code>.</li>
+                </ul>
+
+                =&gt; The <code>open(2)</code> symbol from <code>libcwrap.so</code> gets bound!</blockquote>
+
+                <p>The wrappers used for creating complex testing environments
+                of this project use preloading to supply their own variants of
+                several system or library calls suitable for unit testing of
+                networked software or privilege separation. For example, one
+                wrapper includes its version of most of the standard API used
+                to communicate over sockets that routes the communication over
+                local sockets.</p>
+
+            </div> <!-- /col -->
+        </div>
+
+       <hr>
+
+       <footer>
+           <p>© Andreas Schneider 2013</p>
+       </footer>
+   </div> <!-- /container -->
+
+   <!-- Bootstrap core JavaScript
+        ================================================== -->
+   <!-- Placed at the end of the document so the pages load faster -->
+   <script src="assets/jquery-1.js"></script>
+   <script src="assets/bootstrap.min.js"></script>
+
+</body></html>
