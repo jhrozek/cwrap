@@ -60,6 +60,21 @@
         <!-- Example row of columns -->
         <div class="row">
             <div class="col-md-7">
+                <p>nss_wrapper - A wrapper for the user, group and hosts NSS API</p>
+
+                <p>
+                There are projects that need to be able to create,
+                modify, and delete Unix users. Others just switch user
+                IDs to interact with the system on behalf of another user
+                (e.g. a user space file server). To be able to test these,
+                you need the privilege to modify the passwd and group
+                files. With nss_wrapper it is possible to define your own
+                passwd and group files which will be used by the software
+                while it is under test.  The nss_wrapper also allows you
+                to create a hosts file to set up name resolution for the
+                addresses you use with socket_wrapper.
+                </p>
+
                 <h2>Features</h2>
                 <ul>
                     <li>Provides information for user and group accounts.</li>
@@ -69,23 +84,30 @@
 
                 <h2>Detailed descriptions</h2>
                 <ul>
+                    <li>
+                    The user, group, and hosts functionality are all defined
+                    as wrappers around the Name Service Switch (NSS) API.
+                    </li>
+
                     <li>For user and group accounts you need to create two
                     files: 'passwd' and 'group'. The format of the passwd file
-                    is described in 'man 5 passwd' and the group file in 'man 5
-                    group'. So you can fill these files with made up accounts.
+                    is described in <code>man 5 passwd</code> and the group file
+                    in <code>man 5 group</code>. So you can fill these files with
+                    made up accounts.
                     You point nss_wrapper to them using the two variables
-                    NSS_WRAPPER_PASSWD=/path/to/your/passwd and
-                    NSS_WRAPPER_GROUP=/path/to/your/group.</li>
+                    <code>NSS_WRAPPER_PASSWD=/path/to/your/passwd</code> and
+                    <code>NSS_WRAPPER_GROUP=/path/to/your/group</code>.</li>
 
                     <li>If you also need to emulate network name resolution in
                     your enviornment, especially with socket_wrapper, you can
-                    write a hosts file. The format is described in 'man 5
-                    hosts'. Then you can point nss_wrapper to your hosts file
-                    using: NSS_WRAPPER_HOSTS=/path/to/your/hosts</li>
+                    write a hosts file. The format is described in <code>man 5
+                    hosts</code>. Then you can point nss_wrapper to your hosts file
+                    using: <code>NSS_WRAPPER_HOSTS=/path/to/your/hosts</code>
+                    </li>
 
                     <li>If you need to return a hostname which is different
                     from the one of your machine is using you can use:
-                    NSS_WRAPPER_HOSTNAME=test.example.org</li>
+                    <code>NSS_WRAPPER_HOSTNAME=test.example.org</code></li>
 
                     <li>If you have a project which also provides user and
                     group information out of a database, you normally write
@@ -93,11 +115,11 @@
                     modules and ask them first before looking into the faked
                     passwd and group file. To point nss_wrapper to the module
                     you can do that using
-                    NSS_WRAPPER_MODULE_SO_PATH=/path/to/libnss_yourmodule.so.
+                    <code>NSS_WRAPPER_MODULE_SO_PATH=/path/to/libnss_yourmodule.so.</code>
                     As each nss module has a special prefix like
-                    _nss_winbind_getpwnam() you need to set the prefix too so
+                    <code>_nss_winbind_getpwnam()</code> you need to set the prefix too so
                     nss_wrapper can load the functions with
-                    NSS_WRAPPER_MODULE_FN_PREFIX=&lt;prefix&gt;.</li>
+                    <code>NSS_WRAPPER_MODULE_FN_PREFIX=&lt;prefix&gt;</code>.</li>
 
                 </ul>
 
@@ -110,7 +132,16 @@ $ LD_PRELOAD=libnss_wrapper.so NSS_WRAPPER_PASSWD=passwd \
 NSS_WRAPPER_GROUP=group getent passwd bob
 bob:x:1000:1000:bob gecos:/home/test/bob:/bin/false
 $ LD_PRELOAD=libnss_wrapper.so NSS_WRAPPER_HOSTNAME=test.example.org hostname
-test.example.org</pre>
+test.example.org
+$ echo "fd00::5357:5faa test.cwrap.org" > hosts
+$ echo "127.0.0.170 test.cwrap.org" >> hosts
+# Now query ahostsv6 which returns only IPv6 addresses and
+# calls getaddrinfo() for each the entry.
+$ LD_PRELOAD="libnss_wrapper.so" NSS_WRAPPER_HOSTS=hosts \
+getent ahostsv6 test.cwrap.org
+fd00::5357:5faa DGRAM  test.cwrap.org
+fd00::5357:5faa STREAM test.cwrap.org
+</pre>
 
             </div> <!-- /col -->
         </div>
