@@ -141,11 +141,19 @@ h2, h3 {
 }
 
 .feature.f3 {
-    border-color: #fffcf6;
+    border-color: #62ab9f;
 }
 
 .feature.f4 {
-    border-color: #62ab9f;
+    border-color: #fffcf6;
+}
+
+.feature.f5 {
+    border-color: #5d250e;
+}
+
+.feature.f6 {
+    border-color: #426954;
 }
 
 /* News */
