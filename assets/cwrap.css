@@ -18,7 +18,7 @@
 
 body {
     color: #333232;
-    background-color: #ffffff;
+    background-color: #efefef;
     font-family: "Arial Rounded MT";
 }
 
@@ -80,6 +80,7 @@ h2, h3 {
     height: 1025px;
     background-image: url(../img/homepage-img.png);
     background-repeat: no-repeat;
+    background-color: #ffffff;
 }
 
 /* Main page content */
@@ -88,6 +89,7 @@ h2, h3 {
     position: relative;
     background-image: url(../img/background.png);
     background-repeat: no-repeat;
+    background-color: #ffffff;
 }
 
 .content .row {
