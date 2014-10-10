@@ -67,44 +67,40 @@
                 </ul>
 
                 <h2>Detailed descriptions</h2>
-                <ul>
-                    <li>The idea and the first incarnation of socket_wrapper
-                    has been written by Jelmer Vernooij in 2005. It made it
-                    possible to run the Samba torture suite against smbd in
-                    'make test'. Since then socket_wrapper has evolved
-                    significantly.</li>
 
-                    <li>How does it work? The user defines a directory where to
-                    put all the unix sockets using the envionment variable
-                    "SOCKET_WRAPPER_DIR=/path/to/socket_dir". When a server
-                    opens a port or a client wants to connect, socket_wrapper
-                    will translate IP addresses to a special socket_wrapper
-                    name and look for the relevant unix socket in the
-                    SOCKET_WRAPPER_DIR.</li>
+                <p>The idea and the first incarnation of socket_wrapper has
+                been written by Jelmer Vernooij in 2005. It made it possible to
+                run the Samba torture suite against smbd in 'make test'. Since
+                then socket_wrapper has evolved significantly.</p>
 
-                    <li>Additionally, the default interface to be used by an
-                    application is defined with
-                    "SOCKET_WRAPPER_DEFAULT_IFACE=&lt;ID&gt;" where &lt;ID&gt;
-                    is between 2 and 40. We limited the address space for
-                    performance reasons in the case of broadcasts. This is
-                    analogous to use the IPv4 addresses "127.0.0.&lt;ID&gt;" or
-                    IPv6 addresses "fd00::5357:5f&lt;IDx&gt;" (where
-                    &lt;IDx&gt; is a hexadecimal presentation of &lt;ID&gt;).
-                    You should always set the default interface. If you listen
-                    on INADDR_ANY then it will use the default interface to
-                    listen on.</li>
+                <p>How does it work? The user defines a directory where to put
+                all the unix sockets using the envionment variable
+                "SOCKET_WRAPPER_DIR=/path/to/socket_dir". When a server opens a
+                port or a client wants to connect, socket_wrapper will
+                translate IP addresses to a special socket_wrapper name and
+                look for the relevant unix socket in the
+                SOCKET_WRAPPER_DIR.</p>
 
-                    <li>    When debugging,it is often interesting to
-                    investigate the network traffic between the client and
-                    server within your application. If you define
-                    SOCKET_WRAPPER_PCAP_FILE=/path/to/file.pcap, socket_wrapper
-                    will dump all your network traffic to the specified file.
-                    After the test has been finished you're able to open the
-                    file for example with
-                    <a href="https://www.wireshark.org/" target="_blank">Wireshark</a>
-                    </li>
+                <p>Additionally, the default interface to be used by an
+                application is defined with
+                "SOCKET_WRAPPER_DEFAULT_IFACE=&lt;ID&gt;" where &lt;ID&gt; is
+                between 2 and 40. We limited the address space for performance
+                reasons in the case of broadcasts. This is analogous to use the
+                IPv4 addresses "127.0.0.&lt;ID&gt;" or IPv6 addresses
+                "fd00::5357:5f&lt;IDx&gt;" (where &lt;IDx&gt; is a hexadecimal
+                presentation of &lt;ID&gt;).  You should always set the default
+                interface. If you listen on INADDR_ANY then it will use the
+                default interface to listen on.</p>
 
-                </ul>
+                <p>When debugging,it is often interesting to investigate the
+                network traffic between the client and server within your
+                application. If you define
+                SOCKET_WRAPPER_PCAP_FILE=/path/to/file.pcap, socket_wrapper
+                will dump all your network traffic to the specified file.
+                After the test has been finished you're able to open the file
+                for example with
+                <a href="https://www.wireshark.org/" target="_blank">Wireshark</a>
+                </p>
 
                 <h2>Example</h2>
 <pre># Open a console and create a directory for the unix sockets.
