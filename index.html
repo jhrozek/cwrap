@@ -48,11 +48,11 @@
         <img src="img/icon-one.png" alt="preloading" />
       </div>
 
-      <p>Preloading is a feature of the dynamic linker (ld). It is
-      available on most Unix system and allows to load a user specified,
-      shared library before all other shared libraries which are linked to
+      <p>Preloading is a feature of the dynamic linker (ld). On most UNIX
+      systems <em>ld</em> allows to load a number of shared libraries
+      before loading all the shared libraries which are required by
       an executable. The cwrap project uses this feature to implement
-      special libraries which can be used to fake certain parts of the
+      special libraries which can be used to fake certain behavior of the
       system. Think of it like "The Matrix" where reality is simulated and
       everything is a lie!<br />
       <a href="preloading.html">Learn more ...</a></p>
@@ -67,11 +67,10 @@
         <img src="img/icon-tree.png" alt="socket_wrapper" />
       </div>
 
-      <p>socket_wrapper aims to help client/server software development
-      teams willing to gain full functional test coverage. It makes
-      possible to run several instances of the full software stack on the
-      same machine and perform locally functional testing of complex
-      network configurations.<br /><a href="socket_wrapper.html">Learn more ...</a></p>
+      <p><em>socket_wrapper</em> makes possible to run several instances of a
+      a full client/server software stack on the same machine and to perform
+      functional testing of many complex network configurations locally, with
+      without going out to the network. <br /><a href="socket_wrapper.html">Learn more ...</a></p>
 
       </div>
     </div>
@@ -81,18 +80,18 @@
 
         <div class="col-md-6">
           <div class="feature f3">
-          <h3>Artificial users and groups.</h3>
+          <h3>Users and groups, with artificial flavors</h3>
           <div class="icon">
             <img src="img/icon-two.png" alt="nss_wrapper" />
           </div>
 
-          <p>There are projects which provide daemons needing to be able to
-          create, modify and delete unix users. Or just switch user ids to
-          interact with the system e.g. a user space file server. To be able to
-          test that you need the privilege to modify the passwd and groups
-          file. With nss_wrapper it is possible to define your own passwd and
-          groups file which will be used by software to act correctly while
-          under test.<br /><a href="nss_wrapper.html">Learn more ...</a></p>
+          <p>System management software often requires to create, modify, or
+          delete unix users. Or just switch user identity its processes use to
+          interact with the system e.g., a privilege separation in a user space
+	  file server. To be able to test that you need the privilege to modify
+          the passwd and groups file. With nss_wrapper it is possible to define
+          your own passwd and groups file which will be used by software to act
+          correctly while under test.<br /><a href="nss_wrapper.html">Learn more ...</a></p>
 
           </div>
         </div>
@@ -104,10 +103,10 @@
             <img src="img/icon-tree.png" alt="nss_wrapper" />
           </div>
 
-          <p>If you have a client and server under test they normally use
-          functions to resolve network names to addresses (dns) or vice versa.
-          The nss_wrappers allow you to create a hosts file to setup name
-          resolution for the addresses you use with socket_wrapper.<br />
+          <p>Applications believe in DNS resolution. <em>nss_wrapper</em> allows
+          them to believe in your twist of their reality and seamlessly
+          blend addresses they get through <em>socket_wrapper</em> with DNS
+          resolution of their host names.<br />
           <a href="nss_wrapper.html">Learn more ...</a></p>
 
           </div>
@@ -123,11 +122,11 @@
             <img src="img/icon-two.png" alt="uid_wrapper" />
           </div>
 
-          <p>Some projects like a file server need privilege separation to be
-          able to switch to the connection user and do file operations.
-          uid_wrapper convincingly lies to the application letting it believe
-          it is operating as root and even switching betwen uids and gids as
-          needed.<br /><a href="uid_wrapper.html">Learn more ...</a></p>
+          <p>File serving applications often need a privilege separation to be
+          able to switch to the connecting user identity and do required file
+          operations. <em>uid_wrapper</em> convincingly lies to the applications,
+          letting them to believe they are operating as root and even switching
+          betwen uids and gids as needed.<br /><a href="uid_wrapper.html">Learn more ...</a></p>
 
           </div>
         </div>

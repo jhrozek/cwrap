@@ -47,13 +47,13 @@
                 There are projects that need to be able to create,
                 modify, and delete Unix users. Others just switch user
                 IDs to interact with the system on behalf of another user
-                (e.g. a user space file server). To be able to test these,
-                you need the privilege to modify the passwd and group
-                files. With nss_wrapper it is possible to define your own
-                passwd and group files which will be used by the software
-                while it is under test.  The nss_wrapper also allows you
-                to create a hosts file to set up name resolution for the
-                addresses you use with socket_wrapper.
+                (e.g. a user space file server). To be able to test
+                applications like these, you need to grant privileges
+                to modify the passwd and group files. With nss_wrapper it
+                is possible to define your own passwd and group files
+                to be used the software while it is under test. The nss_wrapper
+                also allows you to create a hosts file to set up name
+                resolution for the addresses you use with socket_wrapper.
                 </p>
 
                 <h2>Features</h2>
@@ -115,7 +115,7 @@ bob:x:1000:1000:bob gecos:/home/test/bob:/bin/false
 $ LD_PRELOAD=libnss_wrapper.so NSS_WRAPPER_HOSTNAME=test.example.org hostname
 test.example.org
 $ echo "fd00::5357:5faa test.cwrap.org" > hosts
-$ echo "127.0.0.170 test.cwrap.org" >> hosts
+$ echo "127.0.0.20 test.cwrap.org" >> hosts
 # Now query ahostsv6 which returns only IPv6 addresses and
 # calls getaddrinfo() for each the entry.
 $ LD_PRELOAD="libnss_wrapper.so" NSS_WRAPPER_HOSTS=hosts \
