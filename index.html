@@ -214,12 +214,34 @@
           <a href="https://www.openhub.net/accounts/pvoborni" target="_blank">Petr Vobornik</a> (HTML/CSS)</p>
         </div>
         <div class="col-md-12">
-          <h3>Mission Statement</h3>
+           <h3>Mission Statement</h3>
 
            <p>cwrap's mission is to enable developers to test complex
            network-based and privileged software stacks on UNIX machines with
            limited network access and without root privileges by providing
            preloadable libraries to wrap standard libc functions.</p>
+
+           <h3>History</h3>
+
+            <p>The idea and the first incarnation of a wrapper has been written
+            by Jelmer Vernooij in 2005. It made it possible to run the Samba
+            torture suite against smbd in 'make test'. It was
+            socket_wrapper.</p>
+
+           <p>In 2007 Stefan Metzmacher wrote nss_wrapper and in 2008
+           uid_wrapper has been added by Andrew Tridgell. During that time
+           libraries were all linked into each binary the Samba build system
+           produced. So only Samba libraries and executables were able to use
+           it. They have been improved by various Samba Team members over the
+           years to fit the needs of Samba.<p>
+
+           <p>When Samba planned to support MIT Kerberos in the Samba Domain
+           Controller it became clear that we can't link the wrappers into the
+           MIT KDC. We needed to go a different way and this was preloading all
+           wrappers. In 2013 Andreas Schneider started to create unit tested
+           versions of the wrappers which could be preloaded. This was the
+           birth of the cwrap project.</p>
+
         </div>
       </div>
       </footer>
