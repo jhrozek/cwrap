@@ -242,6 +242,13 @@ footer {
 }
 
 
+.glyphicon-2x{
+    font-size: 48px; 
+}
+.glyphicon-3x{
+    font-size: 96px; 
+}
+
 /*
 === Bootstrap overrides ===
 */
