@@ -82,7 +82,18 @@
     AAAA    dc.cwrap.org fd00::5357:5f0a
     CNAME   kerberos.cwrap.org dc.cwrap.org
     SRV     _kerberos._tcp.cwrap.org kerberos.cwrap.org 88
+    SOA     cwrap.org ns1.cwrap.org admin.cwrap.org 2014100457 3600 300 1814400
 </pre>
+
+    <p>
+    The SRV record can optionally also include priority and weight:
+    </p>
+<pre>
+    SRV _ldap._tcp.cwrap.org ldap.cwrap.org 389 1 5
+</pre>
+    <p>
+    If unset, the priority defaults to 1 and weight defaults to 100.
+    </p>
 
             </div> <!-- /col -->
         </div>
