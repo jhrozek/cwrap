@@ -43,16 +43,19 @@
 
                     <br />
 
-                    <p>resolv_wrapper makes it possible on most UNIX platforms to
-                    contact your own DNS implmentation in your test environment. It
-                    requires socket_wrapper to be able to contact the server.  Alternatively,
-                    wrapper is able to fake DNS queries
-                    and return valid responses to your application.</p>
+                    <p>resolv_wrapper makes it possible on most UNIX platforms
+                    to contact your own DNS implmentation in your test
+                    environment. It requires socket_wrapper to be able to
+                    contact the server.  Alternatively, the wrapper is able to
+                    fake DNS queries and return valid responses to your
+                    application.</p>
 
                     <h2>Features</h2>
                     <ul>
-                        <li>Redirects name queries to the nameservers specified in your resolv.conf</li>
-                        <li>Can fake DNS queries using a simple formatted DNS hosts file.</li>
+                        <li>Redirects name queries to the nameservers specified
+                        in your <em>resolv.conf</em>.</li>
+                        <li>Can fake DNS queries using a simple formatted DNS
+                        hosts file.</li>
                     </ul>
 
                     <h2>Detailed descriptions</h2>
@@ -65,8 +68,8 @@
 
                     <p>If you do not have a DNS server running but still want
                     to be able that your application or a third party library
-                    is able to do DNS queries, we provide a simple way to do
-                    that. Set the environment variable
+                    can do DNS queries, we provide a simple way to do that. All
+                    you have to do is to set the environment variable
                     <code>RESOLV_WRAPPER_HOSTS</code>.<br /> It must point to a
                     hosts-like text file that specifies fake records for custom
                     queries. The format of the file looks like this:</p>
