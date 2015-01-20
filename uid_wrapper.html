@@ -69,8 +69,10 @@
                 </ul>
 
                 <h2>Example</h2>
-<pre>$ LD_PRELOAD=libuid_wrapper.so UID_WRAPPER=1 UID_WRAPPER_ROOT=1 id
-uid=0(root) gid=0(root) groups=100(users),0(root)</pre>
+<pre>$ id
+uid=1000(asn) gid=100(users) groups=100(users),478(docker)
+$ LD_PRELOAD=libuid_wrapper.so UID_WRAPPER=1 UID_WRAPPER_ROOT=1 id
+uid=0(root) gid=0(root) groups=0(root)</pre>
 
             </div> <!-- /col -->
         </div>
