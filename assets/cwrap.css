@@ -28,7 +28,7 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 80px;
+    font-size: 60px;
 }
 
 h2, h3 {
@@ -47,12 +47,13 @@ h2, h3 {
 
 .jumbo h1 {
     padding-top: 160px;
+    font-size: 80px;
     text-transform: uppercase;
 }
 
 .jumbo p {
     margin: 30px 0;
-    font-size: 30px;
+    font-size: 24px;
 }
 
 .jumbo .info {
@@ -64,8 +65,8 @@ h2, h3 {
 }
 
 .jumbo .btn-primary {
-    line-height: 60px;
-    font-size: 30px;
+    line-height: 50px;
+    font-size: 28px;
     text-transform: lowercase;
     border-radius: 10px;
     padding-left: 30px;
@@ -100,7 +101,7 @@ h2, h3 {
 .content h2 {
     margin-top: 40px;
     text-align: center;
-    font-size: 80px;
+    font-size: 50px;
 }
 
 .content h2.first {
@@ -115,7 +116,7 @@ h2, h3 {
 
 .feature {
     position: relative;;
-    width: 300px;
+    width: 360px;
     padding-left: 30px;
     border-left: 30px solid #cd6431;
 }
@@ -126,7 +127,7 @@ h2, h3 {
 }
 
 .feature p {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .feature h3 {
@@ -177,6 +178,7 @@ h2, h3 {
 
 .statement {
     font-size: 48px;
+    font-weight: bold;
     color: #a2cccb;
     text-align: center;
     margin: 80px 0;
@@ -189,7 +191,7 @@ footer h3 {
 }
 
 footer p {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 footer {
