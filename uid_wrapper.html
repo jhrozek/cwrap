@@ -32,7 +32,11 @@
         <!-- Example row of columns -->
         <div class="row">
             <div class="col-md-12">
-                <p>A wrapper to fake privilege separation</p>
+                <p>A testing tool to fake privilege separation</p>
+
+                <div align="center">
+                    <img src="img/uid_wrapper.png" border="0"/>
+                </div>
 
                 <br />
 
@@ -67,12 +71,6 @@
                     <li>It is possible to start your application as fake root with setting <code>UID_WRAPPER_ROOT=1.</code></li>
                     <li>Enable debugging of uid_wrapper itself by setting the <code>UID_WRAPPER_DEBUGLEVEL</code> variable</li>
                 </ul>
-
-                <h2>Example</h2>
-<pre>$ id
-uid=1000(asn) gid=100(users) groups=100(users),478(docker)
-$ LD_PRELOAD=libuid_wrapper.so UID_WRAPPER=1 UID_WRAPPER_ROOT=1 id
-uid=0(root) gid=0(root) groups=0(root)</pre>
 
             </div> <!-- /col -->
         </div>
